@@ -1,50 +1,84 @@
 .webOptionsContainer {
     margin-top: 1rem;
-    padding: 1rem;
-    
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
     & .optionGroup {
-        margin-bottom: 1rem;
+        margin-bottom: 1.2rem;
         display: flex;
         align-items: center;
         gap: 1rem;
-        
+
         & label {
             min-width: 150px;
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 1rem;
+            color: #444;
+            font-weight: 500;
         }
 
         & .button {
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            width: 20px;
-            height: 20px;
-            font-size: 0.9rem;
-            color: #666;
+            border: none;
+            background-color: #d600a0;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
 
             &:hover {
-                background-color: #e8f3ff;
+                background-color: #b4008a;
+                transform: scale(1.05);
             }
 
             &:active {
-                background-color: #d6e9fd;
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                background-color: #ddd;
+                color: #999;
+                cursor: not-allowed;
+                transform: none;
             }
         }
     }
-    
+
     & .input {
-        padding: 0.5rem;
-        border: 1px solid #ddd;
+        padding: 0.7rem;
+        border: 2px solid #ddd;
         border-radius: 4px;
         width: 80px;
-        font-size: 0.9rem;
-        
+        font-size: 1rem;
+        text-align: center;
+        font-weight: 500;
+        color: #333;
+
         &:focus {
             outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+            border-color: #d600a0;
+            box-shadow: 0 0 0 2px rgba(214, 0, 160, 0.2);
+        }
+
+        /* Remove number input arrows */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        &[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
         }
     }
 }
-
-

@@ -40,7 +40,7 @@ const Checkbox = ({ data, onChange, isSelected, children }: CheckboxProps) => {
                         htmlFor={`checkbox-${data.id}`}
                         className={styles.label}
                     >
-                        Afegir
+                        {isSelected ? "Added" : "Add"}
                     </label>
                 </div>
             </div>

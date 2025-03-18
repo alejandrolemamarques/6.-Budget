@@ -26,7 +26,7 @@ const WebOptions: React.FC<WebOptionsProps> = ({
     return (
         <div className={styles.webOptionsContainer}>
             <div className={styles.optionGroup}>
-                <label htmlFor="pages">Numero de pàgines:</label>
+                <label htmlFor="pages">Number of pages:</label>
                 <button
                     onClick={() => handleValueChange(pages - 1, onPagesChange)}
                     className={styles.button}
@@ -55,7 +55,7 @@ const WebOptions: React.FC<WebOptionsProps> = ({
                 </button>
             </div>
             <div className={styles.optionGroup}>
-                <label htmlFor="languages">Numero d'idiomes:</label>
+                <label htmlFor="languages">Number of languages:</label>
                 <button
                     onClick={() =>
                         handleValueChange(languages - 1, onLanguagesChange)

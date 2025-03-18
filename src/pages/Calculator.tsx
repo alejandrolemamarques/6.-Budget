@@ -12,7 +12,6 @@ const Calculator = () => {
 
     const WEB_SERVICE_ID = 3;
 
-
     useEffect(() => {
         const calculatedPrice = catalog.services
             .filter((service) => selectedServices.includes(service.id))
@@ -44,32 +43,80 @@ const Calculator = () => {
 
     return (
         <div className={styles.calculatorContainer}>
-            <h1 className={styles.title}>Aconsegueix la millor qualitat</h1>
-            <div className={styles.formContainer}>
-                <div className={styles.servicesContainer}>
-                    {catalog.services.map((service) => (
-                        <Checkbox
-                            key={service.id}
-                            data={service}
-                            onChange={handleCheckboxChange}
-                            isSelected={selectedServices.includes(service.id)}
-                        >
-                            {service.id === WEB_SERVICE_ID && (
-                                <WebOptions
-                                    pages={webPages}
-                                    languages={webLanguages}
-                                    onPagesChange={setWebPages}
-                                    onLanguagesChange={setWebLanguages}
-                                />
-                            )}
-                        </Checkbox>
-                    ))}
+            <div className={styles.headerSection}>
+                <h1 className={styles.title}>Web Services Calculator</h1>
+                <p className={styles.subtitle}>
+                    Select the services you need and customize your options to
+                    get an instant quote
+                </p>
+            </div>
+
+            <div className={styles.contentWrapper}>
+                <div className={styles.infoSection}>
+                    <div className={styles.infoCard}>
+                        <h2>How it works</h2>
+                        <ol className={styles.stepsList}>
+                            <li>Select the services you're interested in</li>
+                            <li>
+                                Customize options for each service if available
+                            </li>
+                            <li>Get an instant price estimate</li>
+                            <li>Contact us to finalize your quote</li>
+                        </ol>
+                    </div>
+
+                    <div className={styles.infoCard}>
+                        <h2>Why choose us</h2>
+                        <ul className={styles.benefitsList}>
+                            <li>Professional quality at competitive prices</li>
+                            <li>Transparent pricing with no hidden fees</li>
+                            <li>
+                                Customized solutions for your specific needs
+                            </li>
+                            <li>Ongoing support after project completion</li>
+                        </ul>
+                    </div>
                 </div>
-                <div className={styles.totalContainer}>
-                    <h2 className={styles.totalText}>
-                        Preu pressuposat:{" "}
-                        <span className={styles.totalPrice}>{totalPrice}€</span>
-                    </h2>
+
+                <div className={styles.formContainer}>
+                    <h2 className={styles.formTitle}>Select Your Services</h2>
+                    <div className={styles.servicesContainer}>
+                        {catalog.services.map((service) => (
+                            <Checkbox
+                                key={service.id}
+                                data={service}
+                                onChange={handleCheckboxChange}
+                                isSelected={selectedServices.includes(
+                                    service.id
+                                )}
+                            >
+                                {service.id === WEB_SERVICE_ID &&
+                                    selectedServices.includes(
+                                        WEB_SERVICE_ID
+                                    ) && (
+                                        <WebOptions
+                                            pages={webPages}
+                                            languages={webLanguages}
+                                            onPagesChange={setWebPages}
+                                            onLanguagesChange={setWebLanguages}
+                                        />
+                                    )}
+                            </Checkbox>
+                        ))}
+                    </div>
+                    <div className={styles.totalContainer}>
+                        <h2 className={styles.totalText}>
+                            Estimated price:{" "}
+                            <span className={styles.totalPrice}>
+                                {totalPrice}€
+                            </span>
+                        </h2>
+                        {totalPrice > 0 && (
+                            <button className={styles.requestQuoteBtn}>
+                                Request detailed quote
+                            </button>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

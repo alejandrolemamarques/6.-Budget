@@ -2,20 +2,20 @@
     "services": [
         {
             "id": 1,
-            "name": "Seo",
-            "description": "Programacio d'una web responsive completa",
+            "name": "SEO",
+            "description": "Complete search engine optimization services",
             "price": 300
         },
         {
             "id": 2,
             "name": "Ads",
-            "description": "Programacio d'una web responsive completa",
+            "description": "Comprehensive advertising campaign management",
             "price": 400
         },
         {
             "id": 3,
             "name": "Web",
-            "description": "Programacio d'una web responsive completa",
+            "description": "Complete responsive website development",
             "price": 500
         }
     ]

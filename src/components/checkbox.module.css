@@ -1,64 +1,73 @@
 .checkboxContainer {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    align-items: center;
-    border: 1px solid #666;
-    border-radius: 1rem;
-    padding: 1rem;
-    margin: 1rem;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
     width: 100%;
-    
-    & .checkboxTextContainer {
+    padding: 1.5rem;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+
+    & .mainContent {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    & .checkboxTextContainer {
+        flex: 1;
+
         & .name {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0;
+            color: #333;
         }
-        
+
         & .description {
-            font-size: 1rem;
+            margin: 0.5rem 0 0;
             color: #666;
+            font-size: 0.9rem;
         }
     }
-    
+
     & .checkboxPriceContainer {
-        text-align: center;
-        
+        min-width: 100px;
+        text-align: right;
+
         & .price {
-            font-size: 2.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            color: #666;
-            text-align: center;
+            color: #0066cc;
+            margin: 0;
         }
     }
 
     & .checkboxInputContainer {
+        min-width: 100px;
         display: flex;
-        gap: 0.5rem;
+        align-items: center;
         justify-content: center;
 
+        & .checkboxInput {
+            margin-right: 0.5rem;
+        }
+
         & .label {
-            font-size: 1rem;
             color: #666;
+            font-size: 0.9rem;
         }
     }
 
+    & .optionsContainer {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 1rem;
+    }
+
+    & .totalContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

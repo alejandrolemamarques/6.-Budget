@@ -1,0 +1,50 @@
+.webOptionsContainer {
+    margin-top: 1rem;
+    padding: 1rem;
+    
+    & .optionGroup {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        & label {
+            min-width: 150px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        & .button {
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 20px;
+            height: 20px;
+            font-size: 0.9rem;
+            color: #666;
+
+            &:hover {
+                background-color: #e8f3ff;
+            }
+
+            &:active {
+                background-color: #d6e9fd;
+            }
+        }
+    }
+    
+    & .input {
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 80px;
+        font-size: 0.9rem;
+        
+        &:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+    }
+}
+
+

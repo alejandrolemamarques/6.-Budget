@@ -1,19 +1,12 @@
 import React from "react";
 import styles from "./webOptions.module.css";
+import { useCalculator } from "../../hooks/useCalculator";
+import "../../styles/variables.css";
 
-interface WebOptionsProps {
-    onPagesChange: (pages: number) => void;
-    onLanguagesChange: (languages: number) => void;
-    pages: number;
-    languages: number;
-}
+const WebOptions: React.FC = () => {
+    const { webPages, webLanguages, setWebPages, setWebLanguages } =
+        useCalculator();
 
-const WebOptions: React.FC<WebOptionsProps> = ({
-    onPagesChange,
-    onLanguagesChange,
-    pages,
-    languages,
-}) => {
     const handleValueChange = (
         value: number,
         onChange: (val: number) => void
@@ -28,9 +21,9 @@ const WebOptions: React.FC<WebOptionsProps> = ({
             <div className={styles.optionGroup}>
                 <label htmlFor="pages">Number of pages:</label>
                 <button
-                    onClick={() => handleValueChange(pages - 1, onPagesChange)}
+                    onClick={() => handleValueChange(webPages - 1, setWebPages)}
                     className={styles.button}
-                    disabled={pages <= 1}
+                    disabled={webPages <= 1}
                 >
                     -
                 </button>
@@ -38,17 +31,17 @@ const WebOptions: React.FC<WebOptionsProps> = ({
                     type="number"
                     id="pages"
                     min="1"
-                    value={pages}
+                    value={webPages}
                     onChange={(e) =>
                         handleValueChange(
                             parseInt(e.target.value) || 1,
-                            onPagesChange
+                            setWebPages
                         )
                     }
                     className={styles.input}
                 />
                 <button
-                    onClick={() => handleValueChange(pages + 1, onPagesChange)}
+                    onClick={() => handleValueChange(webPages + 1, setWebPages)}
                     className={styles.button}
                 >
                     +
@@ -58,10 +51,10 @@ const WebOptions: React.FC<WebOptionsProps> = ({
                 <label htmlFor="languages">Number of languages:</label>
                 <button
                     onClick={() =>
-                        handleValueChange(languages - 1, onLanguagesChange)
+                        handleValueChange(webLanguages - 1, setWebLanguages)
                     }
                     className={styles.button}
-                    disabled={languages <= 1}
+                    disabled={webLanguages <= 1}
                 >
                     -
                 </button>
@@ -69,18 +62,18 @@ const WebOptions: React.FC<WebOptionsProps> = ({
                     type="number"
                     id="languages"
                     min="1"
-                    value={languages}
+                    value={webLanguages}
                     onChange={(e) =>
                         handleValueChange(
                             parseInt(e.target.value) || 1,
-                            onLanguagesChange
+                            setWebLanguages
                         )
                     }
                     className={styles.input}
                 />
                 <button
                     onClick={() =>
-                        handleValueChange(languages + 1, onLanguagesChange)
+                        handleValueChange(webLanguages + 1, setWebLanguages)
                     }
                     className={styles.button}
                 >

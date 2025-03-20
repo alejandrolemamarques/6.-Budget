@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./home.module.css";
+import styles from "./index.module.css";
 import { Link } from "react-router-dom";
-import webDevelopment from "../assets/web_development.jpg";
-import seo from "../assets/seo.jpg";
-import onlineAdvertising from "../assets/online_advertising.jpg";
+import webDevelopment from "../../assets/web_development.jpg";
+import seo from "../../assets/seo.jpg";
+import onlineAdvertising from "../../assets/online_advertising.jpg";
 
 const Home = () => {
     return (

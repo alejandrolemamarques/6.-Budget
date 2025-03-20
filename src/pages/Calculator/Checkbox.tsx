@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./checkbox.module.css";
+import { useCalculator } from "../../hooks/useCalculator";
+import "../../styles/variables.css";
 
 interface CheckboxProps {
     data: {
@@ -7,19 +9,24 @@ interface CheckboxProps {
         name: string;
         description: string;
         price: number;
-    };
-    onChange: (serviceId: number, isChecked: boolean) => void;
+    }; 
     isSelected: boolean;
     children?: React.ReactNode;
 }
 
-const Checkbox = ({ data, onChange, isSelected, children }: CheckboxProps) => {
+const Checkbox = ({ data, isSelected, children }: CheckboxProps) => {
+    const { handleCheckboxChange } = useCalculator();
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        onChange(data.id, e.target.checked);
+        handleCheckboxChange(data.id, e.target.checked);
     };
 
     return (
-        <div className={styles.checkboxContainer}>
+        <div
+            className={`${styles.checkboxContainer} ${
+                isSelected ? styles.selected : ""
+            }`}
+        >
             <div className={styles.mainContent}>
                 <div className={styles.checkboxTextContainer}>
                     <h2 className={styles.name}>{data.name}</h2>

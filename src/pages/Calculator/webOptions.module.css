@@ -82,3 +82,140 @@
         }
     }
 }
+
+.webOptionsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md) 0;
+    gap: var(--spacing-md);
+    width: 100%;
+}
+
+.optionGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    width: 100%;
+}
+
+.labelContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    position: relative;
+}
+
+.labelContainer label {
+    font-size: var(--font-size-sm);
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.controlsContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    width: 32px;
+    height: 32px;
+    font-size: var(--font-size-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.button:disabled {
+    background-color: var(--border-medium);
+    cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+}
+
+.input {
+    width: 60px;
+    padding: 0.4rem 0.5rem;
+    text-align: center;
+    border: 1px solid var(--border-input);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+}
+
+/* Info Button Styles */
+.infoButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: var(--font-size-md);
+    transition: all 0.2s ease;
+}
+
+.infoButton:hover .infoIcon {
+    transform: scale(1.1);
+    color: var(--primary-dark);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .webOptionsContainer {
+        padding: var(--spacing-md);
+    }
+
+    .optionGroup {
+        gap: var(--spacing-sm);
+    }
+
+    /* Ensure controls stay in a row at tablet sizes */
+    .controlsContainer {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .webOptionsContainer {
+        align-items: stretch;
+    }
+
+    .optionGroup {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .labelContainer {
+        margin-bottom: var(--spacing-xxs);
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .controlsContainer {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: var(--spacing-xs);
+    }
+
+    /* Make input slightly larger on mobile for better touch targets */
+    .input {
+        width: 80px;
+    }
+}

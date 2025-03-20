@@ -20,75 +20,75 @@
 
     & .mainContent {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
         width: 100%;
         align-items: center;
         gap: var(--spacing-md);
-    }
 
-    & .checkboxTextContainer {
-        flex: 1;
+        & .checkboxTextContainer {
+            flex: 1 1 200px;
 
-        & .name {
-            font-size: var(--font-size-md);
-            margin: 0;
-            color: var(--text-dark);
-            font-weight: 600;
-        }
+            & .name {
+                font-size: var(--font-size-md);
+                margin: 0;
+                color: var(--text-dark);
+                font-weight: 600;
+            }
 
-        & .description {
-            margin: var(--spacing-xs) 0 0;
-            color: var(--text-medium);
-            font-size: var(--font-size-xs);
-        }
-    }
-
-    & .checkboxPriceContainer {
-        min-width: 120px;
-        text-align: right;
-
-        & .price {
-            font-size: var(--font-size-lg);
-            font-weight: bold;
-            color: var(--primary-color);
-            margin: 0;
-        }
-    }
-
-    & .checkboxInputContainer {
-        min-width: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-
-        & .checkboxInput {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-
-            &:checked + .label {
-                background-color: var(--primary-color);
-                color: white;
-                border-color: var(--primary-color);
+            & .description {
+                margin: var(--spacing-xs) 0 0;
+                color: var(--text-medium);
+                font-size: var(--font-size-xs);
             }
         }
 
-        & .label {
-            display: inline-block;
-            color: var(--text-medium);
-            font-size: var(--font-size-xs);
-            background-color: var(--bg-white);
-            border: 2px solid var(--primary-color);
-            border-radius: var(--border-radius-md);
-            padding: var(--spacing-xs) var(--spacing-md);
-            cursor: pointer;
-            transition: all var(--transition-normal);
+        & .checkboxPriceContainer {
+            flex: 0 0 120px;
+            text-align: right;
 
-            &:hover {
-                background-color: var(--primary-light);
+            & .price {
+                font-size: var(--font-size-lg);
+                font-weight: bold;
+                color: var(--primary-color);
+                margin: 0;
+            }
+        }
+
+        & .checkboxIButtonContainer {
+            flex: 0 0 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            & .checkboxInput {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+
+                &:checked + .label {
+                    background-color: var(--primary-color);
+                    color: white;
+                    border-color: var(--primary-color);
+                }
+            }
+
+            & .label {
+                display: inline-block;
+                color: var(--text-medium);
+                font-size: var(--font-size-xs);
+                background-color: var(--bg-white);
+                border: 2px solid var(--primary-color);
+                border-radius: var(--border-radius-md);
+                padding: var(--spacing-xs) var(--spacing-md);
+                cursor: pointer;
+                transition: all var(--transition-normal);
+
+                &:hover {
+                    background-color: var(--primary-light);
+                }
             }
         }
     }

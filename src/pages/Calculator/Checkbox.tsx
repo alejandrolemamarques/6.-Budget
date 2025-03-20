@@ -9,7 +9,7 @@ interface CheckboxProps {
         name: string;
         description: string;
         price: number;
-    }; 
+    };
     isSelected: boolean;
     children?: React.ReactNode;
 }
@@ -28,14 +28,19 @@ const Checkbox = ({ data, isSelected, children }: CheckboxProps) => {
             }`}
         >
             <div className={styles.mainContent}>
+                {/* Checkbox Text Container */}
                 <div className={styles.checkboxTextContainer}>
                     <h2 className={styles.name}>{data.name}</h2>
                     <p className={styles.description}>{data.description}</p>
                 </div>
+
+                {/* Checkbox Price Container */}
                 <div className={styles.checkboxPriceContainer}>
                     <p className={styles.price}>{data.price}€</p>
                 </div>
-                <div className={styles.checkboxInputContainer}>
+
+                {/* Checkbox Input Container */}
+                <div className={styles.checkboxIButtonContainer}>
                     <input
                         id={`checkbox-${data.id}`}
                         type="checkbox"

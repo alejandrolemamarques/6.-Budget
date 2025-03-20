@@ -1,0 +1,103 @@
+.tooltip {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.2s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+
+    & .tooltipContent {
+        background-color: var(--bg-white);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--shadow-lg);
+        padding: var(--spacing-md);
+        border: 1px solid var(--border-light);
+        position: relative;
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+        cursor: default;
+        animation: scaleIn 0.2s ease-in-out;
+
+        & h4 {
+            color: var(--primary-color);
+            margin: 0 0 var(--spacing-xs) 0;
+            font-size: var(--font-size-md);
+            padding-right: var(--spacing-xl);
+        }
+
+        & p {
+            margin: var(--spacing-xs) 0;
+            font-size: var(--font-size-sm);
+            color: var(--text-medium);
+            line-height: 1.4;
+        }
+
+        & .closeButton {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: none;
+            border: none;
+            font-size: var(--font-size-sm);
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background-color: var(--bg-light);
+                color: var(--text-dark);
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .tooltip {
+        & .tooltipContent {
+            & h4 {
+                font-size: var(--font-size-sm);
+            }
+
+            & p {
+                font-size: var(--font-size-xs);
+            }
+        }
+    }
+}

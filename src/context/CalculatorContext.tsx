@@ -11,6 +11,7 @@ export interface QuoteCardProps {
     webPages?: number;
     webLanguages?: number;
     totalPrice: number;
+    date: string;
 }
 
 interface CalculatorContextType {
@@ -20,12 +21,14 @@ interface CalculatorContextType {
     webPages: number;
     webLanguages: number;
     quotes: QuoteCardProps[];
+    setSelectedServices: (services: number[]) => void;
 
     // Actions
     handleCheckboxChange: (serviceId: number, isChecked: boolean) => void;
     setWebPages: (pages: number) => void;
     setWebLanguages: (languages: number) => void;
-    addQuote: (quote: Omit<QuoteCardProps, "id">) => void;
+    addQuote: (quote: QuoteCardProps) => void;
+    deleteQuote: (id: string) => void;
 }
 
 // Create context with a default value
@@ -57,6 +60,7 @@ export const CalculatorProvider: React.FC<{ children: ReactNode }> = ({
             webPages: 1,
             webLanguages: 1,
             totalPrice: 100,
+            date: "2023-11-15T14:30:00.000Z",
         },
     ]);
 
@@ -98,6 +102,10 @@ export const CalculatorProvider: React.FC<{ children: ReactNode }> = ({
         setQuotes([...quotes, newQuote]);
     };
 
+    const deleteQuote = (id: string) => {
+        setQuotes(quotes.filter((quote) => quote.id !== id));
+    };
+
     const contextValue: CalculatorContextType = {
         // State
         selectedServices,
@@ -111,6 +119,8 @@ export const CalculatorProvider: React.FC<{ children: ReactNode }> = ({
         setWebPages,
         setWebLanguages,
         addQuote,
+        setSelectedServices,
+        deleteQuote,
     };
 
     return (

@@ -1,0 +1,174 @@
+.quoteCard {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--spacing-xl);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+
+    & .icon {
+        color: var(--primary-color);
+        opacity: 0.8;
+        width: 16px;
+        margin-right: var(--spacing-xs);
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background-color: var(--primary-color);
+        opacity: 0.7;
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-light);
+    }
+
+    & .quoteHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+        border-bottom: 1px solid var(--border-light);
+
+        & h3 {
+            color: var(--text-dark);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        & .deleteButton {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            padding: var(--spacing-xs);
+            line-height: 1;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+
+            &:hover {
+                color: var(--primary-color);
+                background-color: var(--primary-light);
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    & .quoteDetails {
+        margin-bottom: var(--spacing-lg);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-md);
+
+        & p {
+            margin: 0;
+            color: var(--text-medium);
+            font-size: var(--font-size-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+
+            & strong {
+                color: var(--text-dark);
+                font-weight: 600;
+                min-width: 60px;
+            }
+        }
+    }
+
+    & .servicesList {
+        margin-bottom: var(--spacing-lg);
+        background-color: var(--bg-light);
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-sm);
+
+        & h4 {
+            color: var(--text-dark);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-md);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        & ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+
+            & li {
+                color: var(--text-medium);
+                font-size: var(--font-size-sm);
+                padding: var(--spacing-xs) var(--spacing-sm);
+                background-color: var(--bg-white);
+                border-radius: var(--border-radius-sm);
+                border: 1px solid var(--border-light);
+            }
+        }
+
+        & .webDetails {
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px dashed var(--border-light);
+            color: var(--text-medium);
+            font-size: var(--font-size-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+    }
+
+    & .quoteFooter {
+        border-top: 1px solid var(--border-light);
+        padding-top: var(--spacing-md);
+        margin-top: var(--spacing-md);
+
+        & .totalPrice {
+            text-align: right;
+            font-size: var(--font-size-lg);
+            color: var(--text-dark);
+            font-weight: 600;
+
+            & span {
+                color: var(--primary-color);
+                font-size: var(--font-size-xl);
+                margin-left: var(--spacing-xs);
+                display: inline-flex;
+                align-items: center;
+                gap: var(--spacing-xs);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .quoteCard {
+        padding: var(--spacing-lg);
+
+        & .quoteDetails {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+        }
+    }
+}

@@ -1,39 +1,41 @@
 import React from "react";
 import styles from "./index.module.css";
-import { CalculatorProvider } from "../../context/CalculatorContext";
-import InfoSection from "./InfoSection";
-import ServiceSelectionSection from "./ServiceSelectionSection";
-import QuoteForm from "./QuoteForm";
-import QuotesList from "./QuotesList";
-import "../../styles/variables.css";
+import { CalculatorProvider } from "@/context/CalculatorContext";
+import InfoSection from "./components/InfoSection";
+import ServiceSelectionSection from "./components/ServiceSelectionSection";
+import QuoteForm from "./components/QuoteForm";
+import QuotesList from "./components/QuotesList";
+import "@/styles/variables.css";
 
 // Separating the calculator content from the provider wrapper
 const CalculatorContent: React.FC = () => {
     return (
         <div className={styles.calculatorContainer}>
             {/* Header Section */}
-            <div className={styles.headerSection}>
+            <header className={styles.headerSection}>
                 <h1 className={styles.title}>Web Services Calculator</h1>
                 <p className={styles.subtitle}>
                     Select the services you need and customize your options to
                     get an instant quote
                 </p>
-            </div>
+            </header>
 
-            {/* Wrapper */}
-            <div className={styles.contentWrapper}>
-                {/* Info Section */}
-                <InfoSection />
+            {/* Main Content */}
+            <main>
+                {/* Left Column */}
+                <section className={styles.contentWrapper}>
+                    <InfoSection />
+                    <div className={styles.formContainer}>
+                        <ServiceSelectionSection />
+                        <QuoteForm />
+                    </div>
+                </section>
 
-                {/* Service Selection and Quote Form Section */}
-                <div className={styles.formContainer}>
-                    <ServiceSelectionSection />
-                    <QuoteForm />
-                </div>
-            </div>
-
-            {/* Quotes List Container */}
-            <QuotesList />
+                {/* Quotes List Section */}
+                <section>
+                    <QuotesList />
+                </section>
+            </main>
         </div>
     );
 };

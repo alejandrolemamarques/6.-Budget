@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./checkbox.module.css";
-import { useCalculator } from "../../hooks/useCalculator";
-import "../../styles/variables.css";
+import { useCalculator } from "@/hooks/useCalculator";
+import "@/styles/variables.css";
 
 interface CheckboxProps {
     data: {

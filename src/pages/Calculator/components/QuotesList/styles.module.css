@@ -1,0 +1,93 @@
+.quotesListContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: var(--container-width);
+    margin: var(--spacing-xl) auto;
+    text-align: left;
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-xl);
+
+    & .quotesListHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border-light);
+        padding-bottom: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+
+        & .pendingQuotesTitle {
+            text-align: left;
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        & .quotesCount {
+            color: var(--text-medium);
+            font-size: var(--font-size-sm);
+            background-color: var(--bg-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--border-radius-sm);
+        }
+    }
+
+    & .emptyQuotes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-xxl) var(--spacing-xl);
+        text-align: center;
+        color: var(--text-medium);
+        background-color: var(--bg-light);
+        border-radius: var(--border-radius-md);
+        border: 1px dashed var(--border-medium);
+
+        & .emptyQuotesIcon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.7;
+        }
+
+        & p {
+            font-size: var(--font-size-md);
+            max-width: 400px;
+        }
+    }
+
+    & .quotesList {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+
+        & .quoteCardWrapper {
+            animation: fadeSlideIn 0.5s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .quotesListContainer {
+        width: 95%;
+        padding: var(--spacing-lg);
+    }
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

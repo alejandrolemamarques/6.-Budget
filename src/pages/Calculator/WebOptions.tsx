@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./webOptions.module.css";
-import { useCalculator } from "../../hooks/useCalculator";
-import Tooltip from "./Tooltip";
-import "../../styles/variables.css";
+import { useCalculator } from "@/hooks/useCalculator";
+import Tooltip from "@/pages/Calculator/Tooltip";
+import "@/styles/variables.css";
 
 interface TooltipState {
     isVisible: boolean;

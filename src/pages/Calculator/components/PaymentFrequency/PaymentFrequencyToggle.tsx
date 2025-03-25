@@ -1,6 +1,6 @@
 import React from "react";
 import { useCalculator } from "@/hooks/useCalculator";
-import styles from "./PaymentFrequencyToggle.module.css";
+import styles from "./paymentFrequencyToggle.module.css";
 
 const PaymentFrequencyToggle: React.FC = () => {
     const { paymentFrequency, setPaymentFrequency } = useCalculator();

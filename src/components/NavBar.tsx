@@ -16,7 +16,6 @@ export default function NavBar() {
 
     return (
         <nav className={styles.navbar}>
-
             {/* Desktop Menu */}
             <div className={styles.container}>
                 <div className={styles.logoContainer}>
@@ -55,7 +54,6 @@ export default function NavBar() {
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
-                    
                     {/* Hamburger Menu */}
                     <div
                         className={`${styles.hamburger} ${
@@ -66,7 +64,6 @@ export default function NavBar() {
                         <span></span>
                         <span></span>
                     </div>
-                    
                 </button>
             </div>
 

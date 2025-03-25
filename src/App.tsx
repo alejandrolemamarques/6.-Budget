@@ -3,10 +3,11 @@ import Calculator from "./pages/Calculator";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import { BASE_URL } from "./config";
 
 function App() {
     return (
-        <Router>
+        <Router basename={BASE_URL.slice(0, -1)}>
             <NavBar />
             <div className="main-content">
                 <Routes>

@@ -10,9 +10,9 @@ import {
 interface QuotesListFilterProps {
     searchQuery: string;
     onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    sortField: "date" | "amount" | "name" | null;
+    sortField: "date" | "price" | "name" | null;
     sortDirection: "ascending" | "descending";
-    onSort: (field: "date" | "amount" | "name") => void;
+    onSort: (field: "date" | "price" | "name") => void;
 }
 
 const QuotesListFilter: React.FC<QuotesListFilterProps> = ({
@@ -60,13 +60,13 @@ const QuotesListFilter: React.FC<QuotesListFilterProps> = ({
             </div>
             <div className={styles.quotesListFiltersItem}>
                 <button
-                    onClick={() => onSort("amount")}
+                    onClick={() => onSort("price")}
                     className={`${styles.sortButton} ${
-                        sortField === "amount" ? styles[sortDirection] : ""
+                        sortField === "price" ? styles[sortDirection] : ""
                     }`}
                 >
-                    Amount
-                    {sortField === "amount" && (
+                    Price
+                    {sortField === "price" && (
                         <FontAwesomeIcon
                             icon={
                                 sortDirection === "ascending"

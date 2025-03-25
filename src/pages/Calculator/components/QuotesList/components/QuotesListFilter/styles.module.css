@@ -46,13 +46,16 @@
 
         & .sortButton {
             background: none;
-            border: 1px solid transparent;
+            border: 1px solid var(--border-input);
             color: var(--text-medium);
             font-size: var(--font-size-sm);
             font-weight: 500;
             padding: var(--spacing-sm) var(--spacing-md);
             cursor: pointer;
-            transition: all var(--transition-normal);
+            transition: 
+                color var(--transition-normal),
+                background-color var(--transition-normal),
+                border-color var(--transition-normal);
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);

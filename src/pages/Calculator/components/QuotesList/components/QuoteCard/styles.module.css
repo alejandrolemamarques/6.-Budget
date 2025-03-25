@@ -143,6 +143,42 @@
         border-top: 1px solid var(--border-light);
         padding-top: var(--spacing-md);
         margin-top: var(--spacing-md);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & .paymentInfo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+
+            & .paymentBadge {
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-xs);
+                padding: var(--spacing-xs) var(--spacing-sm);
+                border-radius: var(--border-radius-sm);
+                font-size: var(--font-size-sm);
+                font-weight: 500;
+                transition: all 0.2s ease;
+
+                & svg {
+                    font-size: var(--font-size-sm);
+                }
+
+                &.yearly {
+                    background-color: var(--success-light);
+                    color: var(--success-color);
+                    border: 1px solid var(--success-color);
+                }
+
+                &.monthly {
+                    background-color: var(--primary-light);
+                    color: var(--primary-color);
+                    border: 1px solid var(--primary-color);
+                }
+            }
+        }
 
         & .totalPrice {
             text-align: right;

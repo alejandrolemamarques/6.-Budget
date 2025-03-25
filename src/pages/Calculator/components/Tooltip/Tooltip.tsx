@@ -1,20 +1,9 @@
 import React, { ReactNode } from "react";
 import { createPortal } from "react-dom";
 import styles from "./tooltip.module.css";
+import { TooltipProps } from "@/types";
 
-interface TooltipProps {
-    isVisible: boolean;
-    title: string;
-    content: ReactNode;
-    onClose: () => void;
-}
-
-const Tooltip: React.FC<TooltipProps> = ({
-    isVisible,
-    title,
-    content,
-    onClose,
-}) => {
+const Tooltip = ({ isVisible, title, content, onClose }: TooltipProps) => {
     if (!isVisible) return null;
 
     // Use createPortal to render the tooltip directly to the document body

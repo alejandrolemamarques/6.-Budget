@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import styles from "./webOptions.module.css";
 import { useCalculator } from "@/hooks/useCalculator";
-import Tooltip from "@/pages/Calculator/Tooltip";
+import Tooltip from "@/pages/Calculator/components/Tooltip/Tooltip";
+import { TooltipState } from "@/types";
 import "@/styles/variables.css";
-
-interface TooltipState {
-    isVisible: boolean;
-    tooltipType: "pages" | "languages" | null;
-}
 
 const WebOptions: React.FC = () => {
     const { webPages, webLanguages, setWebPages, setWebLanguages } =

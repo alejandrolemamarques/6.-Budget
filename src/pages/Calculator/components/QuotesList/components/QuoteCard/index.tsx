@@ -2,7 +2,7 @@ import React from "react";
 import { useCalculator } from "@/hooks/useCalculator";
 import styles from "./styles.module.css";
 import catalog from "@/data/catalog.json";
-import { QuoteCardProps } from "@/context/CalculatorContext";
+import { QuoteCardProps } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faEnvelope,
@@ -12,6 +12,8 @@ import {
     faGlobe,
     faEuroSign,
     faTimes,
+    faClock,
+    faCalendarCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
 const QuoteCard: React.FC<QuoteCardProps> = ({
@@ -24,12 +26,23 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
     webPages,
     webLanguages,
     totalPrice,
+    paymentFrequency,
 }) => {
     const { deleteQuote } = useCalculator();
 
     const selectedServicesList = catalog.services.filter((service) =>
         services.includes(service.id)
     );
+
+    const getPaymentFrequencyIcon = () => {
+        return paymentFrequency === "yearly" ? faCalendarCheck : faClock;
+    };
+
+    const getPaymentFrequencyLabel = () => {
+        return paymentFrequency === "yearly"
+            ? "Yearly Payment"
+            : "Monthly Payment";
+    };
 
     return (
         <div className={styles.quoteCard}>
@@ -84,6 +97,14 @@ const QuoteCard: React.FC<QuoteCardProps> = ({
                 )}
             </div>
             <div className={styles.quoteFooter}>
+                <div className={styles.paymentInfo}>
+                    <div
+                        className={`${styles.paymentBadge} ${styles[paymentFrequency]}`}
+                    >
+                        <FontAwesomeIcon icon={getPaymentFrequencyIcon()} />
+                        <span>{getPaymentFrequencyLabel()}</span>
+                    </div>
+                </div>
                 <p className={styles.totalPrice}>
                     Total:{" "}
                     <span>

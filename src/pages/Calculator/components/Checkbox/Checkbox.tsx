@@ -1,25 +1,18 @@
 import React from "react";
 import styles from "./checkbox.module.css";
 import { useCalculator } from "@/hooks/useCalculator";
+import { CheckboxProps, PaymentFrequency } from "@/types";
 import "@/styles/variables.css";
 
-interface CheckboxProps {
-    data: {
-        id: number;
-        name: string;
-        description: string;
-        price: number;
-    };
-    isSelected: boolean;
-    children?: React.ReactNode;
-}
-
 const Checkbox = ({ data, isSelected, children }: CheckboxProps) => {
-    const { handleCheckboxChange } = useCalculator();
+    const { handleCheckboxChange, paymentFrequency } = useCalculator();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         handleCheckboxChange(data.id, e.target.checked);
     };
+
+    const discountedPrice =
+        paymentFrequency === "yearly" ? data.price * 0.8 : data.price;
 
     return (
         <div
@@ -36,7 +29,22 @@ const Checkbox = ({ data, isSelected, children }: CheckboxProps) => {
 
                 {/* Checkbox Price Container */}
                 <div className={styles.checkboxPriceContainer}>
-                    <p className={styles.price}>{data.price}€</p>
+                    {paymentFrequency === "yearly" ? (
+                        <div className={styles.priceWrapper}>
+                            <p
+                                className={`${styles.price} ${styles.originalPrice}`}
+                            >
+                                {data.price}€
+                            </p>
+                            <p
+                                className={`${styles.price} ${styles.discountedPrice}`}
+                            >
+                                {discountedPrice}€
+                            </p>
+                        </div>
+                    ) : (
+                        <p className={styles.price}>{data.price}€</p>
+                    )}
                 </div>
 
                 {/* Checkbox Input Container */}

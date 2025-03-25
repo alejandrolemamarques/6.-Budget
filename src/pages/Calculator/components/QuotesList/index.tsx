@@ -7,14 +7,14 @@ import { useCalculator } from "@/hooks/useCalculator";
 const QuotesList: React.FC = () => {
     const { quotes } = useCalculator();
     const [sortField, setSortField] = useState<
-        "date" | "amount" | "name" | null
+        "date" | "price" | "name" | null
     >(null);
     const [sortDirection, setSortDirection] = useState<
         "ascending" | "descending"
     >("descending");
     const [searchQuery, setSearchQuery] = useState("");
 
-    const handleSort = (field: "date" | "amount" | "name") => {
+    const handleSort = (field: "date" | "price" | "name") => {
         if (sortField === field) {
             setSortDirection(
                 sortDirection === "ascending" ? "descending" : "ascending"
@@ -46,7 +46,7 @@ const QuotesList: React.FC = () => {
                     multiplier *
                     (new Date(a.date).getTime() - new Date(b.date).getTime())
                 );
-            case "amount":
+            case "price":
                 return multiplier * (a.totalPrice - b.totalPrice);
             case "name":
                 return multiplier * a.name.localeCompare(b.name);

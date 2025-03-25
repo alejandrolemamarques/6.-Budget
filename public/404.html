@@ -9,6 +9,10 @@
                 console.log("404.html - Starting redirect process");
                 console.log("Current URL:", window.location.href);
 
+                // Get the base URL
+                const baseUrl =
+                    "https://alejandrolemamarques.github.io/6.-Budget";
+
                 // Get the current path and query
                 const fullPath = window.location.pathname.replace(
                     "/6.-Budget/",
@@ -20,10 +24,9 @@
                 console.log("Query string:", queryString);
 
                 // Create a special redirect URL with the target path encoded
-                const redirectUrl =
-                    "/6.-Budget/?redirect=" +
-                    encodeURIComponent(fullPath + queryString);
-
+                const redirectUrl = `${baseUrl}/?redirect=${encodeURIComponent(
+                    fullPath + queryString
+                )}`;
                 console.log("Redirecting to:", redirectUrl);
 
                 // Redirect to the main page with the encoded target

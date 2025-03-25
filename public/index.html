@@ -17,6 +17,10 @@
                 console.log("index.html - Starting redirect check");
                 console.log("Current URL:", window.location.href);
 
+                // Get the base URL
+                const baseUrl =
+                    "https://alejandrolemamarques.github.io/6.-Budget";
+
                 // Check if we have a redirect parameter
                 const urlParams = new URLSearchParams(window.location.search);
                 const redirectPath = urlParams.get("redirect");
@@ -31,8 +35,9 @@
                     );
 
                     // Construct the final URL
-                    const finalUrl =
-                        "/6.-Budget/" + decodeURIComponent(redirectPath);
+                    const finalUrl = `${baseUrl}/${decodeURIComponent(
+                        redirectPath
+                    )}`;
                     console.log("Final redirect URL:", finalUrl);
 
                     // Replace the current URL and reload

@@ -5,47 +5,26 @@
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta
-            name="description"
-            content="Web site created using create-react-app"
-        />
+        <meta name="description" content="Budget Calculator App" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <title>Budget Calculator</title>
         <script>
             (function () {
-                console.log("index.html - Starting redirect check");
-                console.log("Current URL:", window.location.href);
-
-                // Get the base URL
-                const baseUrl =
-                    "https://alejandrolemamarques.github.io/6.-Budget";
-
-                // Check if we have a redirect parameter
-                const urlParams = new URLSearchParams(window.location.search);
-                const redirectPath = urlParams.get("redirect");
-                console.log("Redirect parameter found:", redirectPath);
-
-                if (redirectPath) {
-                    // Remove the redirect parameter
-                    urlParams.delete("redirect");
-                    console.log(
-                        "URL params after removal:",
-                        urlParams.toString()
-                    );
-
-                    // Construct the final URL
-                    const finalUrl = `${baseUrl}/${decodeURIComponent(
-                        redirectPath
-                    )}`;
-                    console.log("Final redirect URL:", finalUrl);
-
-                    // Replace the current URL and reload
-                    console.log("Performing final redirect...");
-                    window.location.replace(finalUrl);
-                } else {
-                    console.log(
-                        "No redirect parameter found, continuing normal load"
+                // Check if we have a hash route from 404.html
+                var hash = window.location.hash.slice(1);
+                console.log("Hash:", hash);
+                if (hash) {
+                    // Decode the route
+                    var route = decodeURIComponent(hash);
+                    console.log("Route:", route);
+                    // Remove the hash
+                    window.location.hash = "";
+                    // Update the URL without reloading
+                    window.history.replaceState(
+                        null,
+                        null,
+                        "/6.-Budget/" + route
                     );
                 }
             })();

@@ -19,11 +19,10 @@
                 if (redirect) {
                     sessionStorage.removeItem("redirect");
                     if (redirect !== "") {
-                        history.replaceState(
-                            null,
-                            null,
-                            "/6.-Budget/" + redirect
-                        );
+                        const newUrl = "/6.-Budget/" + redirect;
+                        window.history.replaceState(null, null, newUrl);
+                        // Force a page reload to ensure React router picks up the new URL
+                        window.location.href = newUrl;
                     }
                 }
             })();

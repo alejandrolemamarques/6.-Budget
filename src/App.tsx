@@ -3,7 +3,6 @@ import Calculator from "./pages/Calculator";
 import Home from "./pages/Home";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import { BASE_URL } from "./config";
 
 function App() {
     return (

@@ -5,19 +5,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Redirecting...</title>
         <script>
-            // Get the current path excluding the base path
-            const fullPath = window.location.pathname.replace(
-                "/6.-Budget/",
-                ""
-            );
-            // Get query parameters
-            const queryString = window.location.search;
-            // Combine path and query parameters
-            const fullUrl = fullPath + queryString;
-            // Store the complete URL in session storage
-            sessionStorage.setItem("redirect", fullUrl);
-            // Redirect to the main page
-            window.location.replace("/6.-Budget/");
+            (function () {
+                console.log("404.html - Starting redirect process");
+                console.log("Current URL:", window.location.href);
+
+                // Get the current path and query
+                const fullPath = window.location.pathname.replace(
+                    "/6.-Budget/",
+                    ""
+                );
+                console.log("Extracted path:", fullPath);
+
+                const queryString = window.location.search;
+                console.log("Query string:", queryString);
+
+                // Create a special redirect URL with the target path encoded
+                const redirectUrl =
+                    "/6.-Budget/?redirect=" +
+                    encodeURIComponent(fullPath + queryString);
+
+                console.log("Redirecting to:", redirectUrl);
+
+                // Redirect to the main page with the encoded target
+                window.location.replace(redirectUrl);
+            })();
         </script>
     </head>
     <body>

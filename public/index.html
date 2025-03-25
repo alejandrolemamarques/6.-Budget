@@ -13,17 +13,35 @@
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <title>Budget Calculator</title>
         <script>
-            // Check if there's a redirect path stored
             (function () {
-                const redirect = sessionStorage.getItem("redirect");
-                if (redirect) {
-                    sessionStorage.removeItem("redirect");
-                    if (redirect !== "") {
-                        const newUrl = "/6.-Budget/" + redirect;
-                        window.history.replaceState(null, null, newUrl);
-                        // Force a page reload to ensure React router picks up the new URL
-                        window.location.href = newUrl;
-                    }
+                console.log("index.html - Starting redirect check");
+                console.log("Current URL:", window.location.href);
+
+                // Check if we have a redirect parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectPath = urlParams.get("redirect");
+                console.log("Redirect parameter found:", redirectPath);
+
+                if (redirectPath) {
+                    // Remove the redirect parameter
+                    urlParams.delete("redirect");
+                    console.log(
+                        "URL params after removal:",
+                        urlParams.toString()
+                    );
+
+                    // Construct the final URL
+                    const finalUrl =
+                        "/6.-Budget/" + decodeURIComponent(redirectPath);
+                    console.log("Final redirect URL:", finalUrl);
+
+                    // Replace the current URL and reload
+                    console.log("Performing final redirect...");
+                    window.location.replace(finalUrl);
+                } else {
+                    console.log(
+                        "No redirect parameter found, continuing normal load"
+                    );
                 }
             })();
         </script>

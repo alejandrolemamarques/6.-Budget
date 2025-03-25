@@ -9,26 +9,6 @@
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <title>Budget Calculator</title>
-        <script>
-            (function () {
-                // Check if we have a hash route from 404.html
-                var hash = window.location.hash.slice(1);
-                console.log("Hash:", hash);
-                if (hash) {
-                    // Decode the route
-                    var route = decodeURIComponent(hash);
-                    console.log("Route:", route);
-                    // Remove the hash
-                    window.location.hash = "";
-                    // Update the URL without reloading
-                    window.history.replaceState(
-                        null,
-                        null,
-                        "/6.-Budget/" + route
-                    );
-                }
-            })();
-        </script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>

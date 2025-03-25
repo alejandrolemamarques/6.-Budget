@@ -80,6 +80,10 @@
             cursor: pointer;
             padding: var(--spacing-xs);
             z-index: 1001;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+            outline: none;
 
             & .hamburger {
                 display: flex;
@@ -89,6 +93,7 @@
                 height: 24px;
                 position: relative;
                 transition: all 0.3s ease;
+                -webkit-tap-highlight-color: transparent;
 
                 & span {
                     display: block;

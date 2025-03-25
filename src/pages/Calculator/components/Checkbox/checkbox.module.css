@@ -74,6 +74,9 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
 
             & .checkboxInput {
                 position: absolute;
@@ -99,9 +102,21 @@
                 padding: var(--spacing-xs) var(--spacing-md);
                 cursor: pointer;
                 transition: all var(--transition-normal);
+                -webkit-tap-highlight-color: transparent;
+                -webkit-user-select: none;
+                user-select: none;
+                outline: none;
 
                 &:hover {
                     background-color: var(--primary-light);
+                }
+
+                &:focus {
+                    outline: none;
+                }
+
+                &:active {
+                    outline: none;
                 }
             }
         }

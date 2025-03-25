@@ -86,7 +86,8 @@
     .calculatorContainer {
         & .contentWrapper {
             flex-direction: column;
-            width: 90%;
+            width: 100%;
+            padding: 0 var(--spacing-sm);
         }
 
         & .headerSection {
@@ -104,15 +105,17 @@
 @media (max-width: 600px) {
     .calculatorContainer {
         & .headerSection {
-            padding: var(--spacing-xl) var(--spacing-md) var(--spacing-xxl);
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-bottom: var(--spacing-md);
 
             & .title {
-                font-size: var(--font-size-xl);
+                font-size: var(--font-size-lg);
             }
         }
 
         & .contentWrapper {
-            width: 95%;
+            width: 100%;
+            padding: 0 var(--spacing-xs);
         }
     }
 }

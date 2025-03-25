@@ -8,6 +8,7 @@
 
     & .sectionHeader {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         align-items: center;
         margin-bottom: var(--spacing-lg);
@@ -136,6 +137,37 @@
 }
 
 @media (max-width: 600px) {
+    .serviceSelectionSection {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+
+        & .sectionHeader {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+
+            & h2 {
+                font-size: var(--font-size-md);
+            }
+        }
+
+        & .discountMessage {
+            font-size: var(--font-size-xs);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            margin-bottom: 0;
+        }
+
+        & .servicesContainer {
+            gap: var(--spacing-sm);
+        }
+
+        & .totalPriceSection {
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+
     .formContainer {
         padding: var(--spacing-lg) var(--spacing-md);
 

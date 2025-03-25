@@ -1,52 +1,130 @@
 .toggleContainer {
     display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+
+    .toggleTitle {
+        font-size: var(--font-size-sm);
+        font-weight: 400;
+        color: var(--text-dark);
+        margin: 0;
+        text-align: center;
+    }
 
     .toggleWrapper {
         display: flex;
         align-items: center;
-        gap: 1rem;
-        background-color: var(--color-background-secondary);
-        padding: 0.5rem;
-        border-radius: 8px;
-        box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.1);
+        gap: var(--spacing-lg);
+        background-color: var(--bg-light);
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-lg);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        user-select: none;
     }
 
-    .label {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: var(--color-text-secondary);
+    .option {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius-md);
+        transition: all var(--transition-normal);
+        background-color: var(--bg-white);
+        border: 2px solid transparent;
+
+        &.active {
+            border-color: var(--primary-color);
+            background-color: var(--primary-light);
+
+            .icon {
+                color: var(--primary-color);
+            }
+
+            .label {
+                color: var(--primary-color);
+            }
+        }
+
+        .icon {
+            font-size: var(--font-size-lg);
+            color: var(--text-medium);
+            transition: color var(--transition-normal);
+        }
+
+        .optionContent {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .label {
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: color var(--transition-normal);
+        }
+
+        .description {
+            font-size: var(--font-size-xs);
+            color: var(--text-medium);
+        }
+
+        .savingsBadge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: var(--font-size-xs);
+            color: var(--primary-color);
+            font-weight: 600;
+
+            .savingsIcon {
+                font-size: 10px;
+            }
+        }
     }
 
     .toggleSwitch {
         position: relative;
-        width: 60px;
-        height: 32px;
+        width: 52px;
+        height: 28px;
         border: none;
         background: none;
         cursor: pointer;
         padding: 0;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        user-select: none;
+        outline: none;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            outline: none;
+        }
 
         .toggleTrack {
             position: relative;
             width: 100%;
             height: 100%;
-            background-color: #f0f0f0;
-            border-radius: 16px;
+            background-color: var(--border-input);
+            border-radius: 14px;
             transition: background-color 0.2s ease;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .toggleThumb {
             position: absolute;
             top: 2px;
             left: 2px;
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             background-color: white;
             border-radius: 50%;
             transition: transform 0.2s ease;
@@ -55,22 +133,57 @@
 
         &.active {
             .toggleTrack {
-                background-color: #2196f3;
+                background-color: var(--primary-color);
             }
 
             .toggleThumb {
-                transform: translateX(28px);
-                background-color: white;
+                transform: translateX(24px);
             }
         }
     }
 
-    .discountBadge {
-        background-color: var(--color-success);
-        color: white;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 600;
+    .savingsMessage {
+        font-size: var(--font-size-sm);
+        color: var(--primary-color);
+        font-weight: 500;
+        margin: 0;
+        padding: var(--spacing-xs) var(--spacing-md);
+        background-color: var(--primary-light);
+        border-radius: var(--border-radius-md);
+        animation: fadeIn 0.3s ease;
+    }
+}
+
+@media (max-width: 600px) {
+    .toggleContainer {
+        width: 100%;
+        padding: var(--spacing-sm);
+
+        .toggleWrapper {
+            width: 100%;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            padding: var(--spacing-sm);
+        }
+
+        .option {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .toggleSwitch {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

@@ -18,11 +18,6 @@ const ServiceSelectionSection: React.FC = () => {
                 <h2>Select your services</h2>
                 <PaymentFrequencyToggle />
             </div>
-            {paymentFrequency === "yearly" && (
-                <div className={styles.discountMessage}>
-                    Save 20% with yearly billing
-                </div>
-            )}
             <div className={styles.servicesContainer}>
                 {catalog.services.map((service) => (
                     <Checkbox

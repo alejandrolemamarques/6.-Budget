@@ -3,7 +3,8 @@ name: Deploy to GitHub Pages
 on:
     push:
         branches:
-            - main # or your default branch
+            - main
+            - master # add support for master branch
 
 permissions:
     contents: read
@@ -29,7 +30,7 @@ jobs:
             - name: Build
               run: npm run build
               env:
-                  VITE_REPO_NAME: 6-Budget
+                  VITE_REPO_NAME: ${{ github.event.repository.name }} # Use actual repo name
 
             - name: Setup Pages
               uses: actions/configure-pages@v4

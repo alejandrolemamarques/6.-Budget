@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Redirecting...</title>
         <script>
             // Get the current path excluding the base path
-            const path = window.location.pathname.replace("/6.-Budget/", "");
-            // Store the path in session storage
-            sessionStorage.setItem("redirect", path);
+            const fullPath = window.location.pathname.replace(
+                "/6.-Budget/",
+                ""
+            );
+            // Get query parameters
+            const queryString = window.location.search;
+            // Combine path and query parameters
+            const fullUrl = fullPath + queryString;
+            // Store the complete URL in session storage
+            sessionStorage.setItem("redirect", fullUrl);
             // Redirect to the main page
             window.location.replace("/6.-Budget/");
         </script>

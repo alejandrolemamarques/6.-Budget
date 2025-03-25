@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect, ReactNode } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
     CalculatorContextType,
     QuoteCardProps,
@@ -18,12 +19,28 @@ const WEB_SERVICE_ID = 3;
 export const CalculatorProvider: React.FC<{ children: ReactNode }> = ({
     children,
 }) => {
-    const [selectedServices, setSelectedServices] = useState<number[]>([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    // Initialize state from URL parameters
+    const [selectedServices, setSelectedServices] = useState<number[]>(() => {
+        const servicesParam = searchParams.get("services");
+        return servicesParam ? servicesParam.split(",").map(Number) : [];
+    });
     const [totalPrice, setTotalPrice] = useState<number>(0);
-    const [webPages, setWebPages] = useState<number>(1);
-    const [webLanguages, setWebLanguages] = useState<number>(1);
-    const [paymentFrequency, setPaymentFrequency] =
-        useState<PaymentFrequency>("monthly");
+    const [webPages, setWebPages] = useState<number>(() => {
+        const pagesParam = searchParams.get("pages");
+        return pagesParam ? Number(pagesParam) : 1;
+    });
+    const [webLanguages, setWebLanguages] = useState<number>(() => {
+        const languagesParam = searchParams.get("languages");
+        return languagesParam ? Number(languagesParam) : 1;
+    });
+    const [paymentFrequency, setPaymentFrequency] = useState<PaymentFrequency>(
+        () => {
+            const frequencyParam = searchParams.get("frequency");
+            return (frequencyParam as PaymentFrequency) || "monthly";
+        }
+    );
     const [quotes, setQuotes] = useState<QuoteCardProps[]>([
         {
             id: "1",
@@ -37,6 +54,30 @@ export const CalculatorProvider: React.FC<{ children: ReactNode }> = ({
             webLanguages: 1,
             paymentFrequency: "monthly",
         },
+    ]);
+
+    // Update URL when state changes
+    useEffect(() => {
+        const params = new URLSearchParams();
+        if (selectedServices.length > 0) {
+            params.set("services", selectedServices.join(","));
+        }
+        if (webPages > 1) {
+            params.set("pages", webPages.toString());
+        }
+        if (webLanguages > 1) {
+            params.set("languages", webLanguages.toString());
+        }
+        if (paymentFrequency !== "monthly") {
+            params.set("frequency", paymentFrequency);
+        }
+        setSearchParams(params);
+    }, [
+        selectedServices,
+        webPages,
+        webLanguages,
+        paymentFrequency,
+        setSearchParams,
     ]);
 
     // Calculate the total price

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./checkbox.module.css";
 import { useCalculator } from "@/hooks/useCalculator";
-import { CheckboxProps, PaymentFrequency } from "@/types";
+import { CheckboxProps } from "@/types";
 import "@/styles/variables.css";
 
 const Checkbox = ({ data, isSelected, children }: CheckboxProps) => {

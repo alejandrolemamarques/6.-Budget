@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import { useCalculator } from "@/hooks/useCalculator";
 
 const QuoteForm: React.FC = () => {
-    const { addQuote, selectedServices, totalPrice, webPages, webLanguages } =
+    const { addQuote, selectedServices, totalPrice, webPages, webLanguages, paymentFrequency } =
         useCalculator();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -31,6 +31,7 @@ const QuoteForm: React.FC = () => {
             date: new Date().toLocaleDateString(),
             services: selectedServices,
             totalPrice,
+            paymentFrequency,
             webPages,
             webLanguages,
         });

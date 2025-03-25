@@ -1,4 +1,3 @@
-import React, { ReactNode } from "react";
 import { createPortal } from "react-dom";
 import styles from "./tooltip.module.css";
 import { TooltipProps } from "@/types";

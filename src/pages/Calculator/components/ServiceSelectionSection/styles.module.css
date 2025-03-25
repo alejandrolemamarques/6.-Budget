@@ -17,6 +17,7 @@
             margin: 0;
             font-size: var(--font-size-lg);
             color: var(--text-dark);
+            align-self: flex-start;
         }
     }
 
